@@ -5,10 +5,10 @@ var vidConn;
 var message, a_message;
 
 
-var peer = new Peer(Math.floor(Math.random()*1000),{
+var peer = new Peer(Math.floor(Math.random()*1000000000),{
 
   key : 'peerjs',
-	host:  '10.20.33.104',
+	host:  '192.168.43.138',
   port: 2000
 
  });
@@ -22,19 +22,20 @@ peer.on('open', function(id) {
 
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-  getVideo(function(stream){
-
-      window.localStream = stream;
-      onReceiveStream(stream, 'my-camera');
-      
-    }); 
-
      function getVideo(callback){
        navigator.getUserMedia({audio: true, video: true}, callback, function(error){
       console.log(error);
       alert('An error occured. Please try again');
+
     });
     }
+
+      getVideo(function(stream){
+
+        window.localStream = stream;
+        onReceiveStream(stream, 'my-camera');
+      
+      }); 
 
   function onReceiveStream(stream, element_id){
     var video = $('#' + element_id + ' video')[0];
@@ -101,16 +102,15 @@ $(document).ready(function(){
 
   $('#InPeer_startcall').click(function(){
 
-     
-
-    //for(var i=0 ; i<1000000000 ; i++){}
-
     vidConn = peer.call(DestPeerID, window.localStream);
 
     if(vidConn){
 
         initVideo();
     }
+
+    $('#my-camera').css('left','370px');
+    $('#peer-camera').css('left','790px');
 
   });
 
@@ -147,7 +147,7 @@ function initConnection(){
             }else{
 
               console.log('Received Data : ', data);
-              $('#msgtextarea').val($('#msgtextarea').val() + "\n" + data);
+              $('#msgtextarea').val($('#msgtextarea').val() + "\n                      > " + data);
               $('#msgtextarea').scrollTop($('#msgtextarea')[0].scrollHeight);
             }
 
@@ -159,7 +159,7 @@ function initConnection(){
   					if(id.keyCode == 13){
 
   						message = $('#message').val();
-  						$('#msgtextarea').val($('#msgtextarea').val() + "\n" + message);
+  						$('#msgtextarea').val($('#msgtextarea').val() + "\n> " + message);
   						$('#msgtextarea').scrollTop($('#msgtextarea')[0].scrollHeight);
 
   						dataConn.send(message);
@@ -191,7 +191,7 @@ peer.on('connection', function(conn) {
 		conn.on('data', function(data){
 
     		console.log('Received Data : ', data);
-    		$('#a_msgtextarea').val($('#a_msgtextarea').val() + "\n" + data);
+    		$('#a_msgtextarea').val($('#a_msgtextarea').val() + "\n                      > " + data);
   			$('#a_msgtextarea').scrollTop($('#a_msgtextarea')[0].scrollHeight);
 
   	});
@@ -202,7 +202,7 @@ peer.on('connection', function(conn) {
   			if(id.keyCode == 13){
 
   				a_message = $('#a_message').val();
-  				$('#a_msgtextarea').val($('#a_msgtextarea').val() + "\n" + a_message);
+  				$('#a_msgtextarea').val($('#a_msgtextarea').val() + "\n> " + a_message);
   				$('#a_msgtextarea').scrollTop($('#a_msgtextarea')[0].scrollHeight);
   				console.log(" " + $('#a_msgtextarea')[0].scrollWidth);
 
@@ -220,6 +220,10 @@ peer.on('call', function(call){
 });
 
 function onReceiveCall(call){
+
+
+    $('#my-camera').css('left','370px');
+    $('#peer-camera').css('left','790px');
 
     call.answer(window.localStream);
 

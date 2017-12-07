@@ -1,0 +1,95 @@
+.login {
+
+	position: relative;
+	left: 625px;
+	top: 460px;
+}
+
+.msg {
+
+	position: relative;
+	left: 600px;
+	top: 460px;
+}
+
+.a_msg {
+
+	position: relative;
+	left: 600px;
+	top: 460px;
+}
+
+h4 {
+
+	position: relative;
+	left: 84px;
+}
+
+#destpeerID {
+
+	position: relative;
+	left: 23px;
+}
+
+#connect {
+
+	position: relative;
+	top : 10px;
+}
+
+#msgtextarea {
+
+	position: relative;
+	top: 20px;
+	left: 2px;
+	width: 300px;
+	height: 80px;
+	resize: none;
+	border: solid 3px black;
+	font-weight: bold;
+}
+
+#a_msgtextarea {
+
+	position: relative;
+	top: 20px;
+	left: 2px;
+	width: 300px;
+	height: 80px;
+	resize: none;
+	border: solid 3px black;
+	font-weight: bold;
+}
+
+#message {
+
+	position: relative;
+	top: 18px;
+	left: 3px;
+	width: 300px;
+	border: solid 3px black; 
+}
+
+#a_message {
+
+	position: relative;
+	top: 18px;
+	left: 3px;
+	width: 300px;
+	border: solid 3px black;
+}
+
+#InPeer_startcall {
+
+	position: relative;
+	top: 24px;
+	left: 116px;
+}
+
+.camera {
+
+	position: absolute;
+	left: 580px;
+	top: 100px;
+	border: 5px solid black;
+}
