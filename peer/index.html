@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<title>Peer to Peer Video Chat</title>
+
+	<script type="text/javascript" src="libs/peer.js"></script>
+	<script type="text/javascript" src="libs/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+	<div class="login">
+
+		<h4>Your ID : <span id="id"></span></h4><br>
+
+		User Name : <br>
+		<input type="text" name="UserName" id="name" placeholder="Enter Your User Name"><br>
+		Peer ID : <br>
+		<input type="text" name="DestinationPeerID" id="destpeerID" placeholder="Enter Others Peer ID"><br>
+
+		<button id="connect">Connect</button><br><br>
+
+	</div>
+
+	<div class="AnPeer_receive" style="display:none">
+		
+		Peer Connected : <span id="AnPeer_id"></span>
+		<button id="AnPeer_startchat">Start Chat</button><br><br>
+
+	</div>
+
+	<div class="InPeer_request" style="display:none">
+		
+		Request has been sent!
+
+	</div>
+
+	<div class="InPeer_request_accepted" style="display:none">
+		
+		Request Accepted from Peer <span id="InPeer_request_accepted_name"></span>
+		<button id="InPeer_startchat">Start Chat</button><br><br>
+
+	</div>
+
+	<div class="AnPeer_connected" style="display:none">
+		
+		Connected to peer <span id="AnPeer_connected_name"></span>
+
+	</div>
+
+	<div class="InPeer_connected" style="display:none">
+		
+		Connected to peer <span id="InPeer_connected_name"></span>
+
+	</div>
+
+<!--****************************************************************************************-->
+
+	<div class="msg" style="display:none">
+		
+		<textarea id="msgtextarea" cols="20" name="msgs" rows="4"></textarea>><br>
+		<input type="text" name="Enter Message : " id="message" placeholder="Message"><br>
+
+	</div>	
+
+	<div class="a_msg" style="display:none">
+		
+		<textarea id="a_msgtextarea" cols="20" name="a_msgs" rows="4"></textarea>><br>
+		<input type="text" name="Enter Message : " id="a_message" placeholder="Message"><br>
+
+	</div>	
+
+<!--****************************************************************************************-->
+
+	<div class="InPeer_call" style="display:none">
+		
+		<button id="InPeer_startcall">Video Call</button><br><br>
+
+	</div>
+
+
+	 <div id="my-camera" class="camera">
+	 
+        <video width="200" height="200" autoplay></video>
+      </div>
+    </div>
+
+      <div id="peer-camera" class="camera">
+      	 
+        <video width="300" height="300" autoplay></video>
+      </div>
+
+<!--****************************************************************************************-->
+
+</body>
+</html>
